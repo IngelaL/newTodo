@@ -8,19 +8,19 @@ export const tasks  = createSlice({
         items: [
         {   id: 1, 
             text: 'Learn React', 
-            complete: true,
+            complete: false,
             created: moment(new Date()).format()
         },
 
         {   id: 2, 
             text: 'Read a book', 
-            complete: true,
+            complete: false,
             created: moment(new Date()).format()
         },
 
         {   id: 3, 
             text: 'Bake a mudcake', 
-            complete: true,
+            complete: false,
             created: moment(new Date()).format()
         }
     ]
@@ -43,6 +43,19 @@ reducers: {
     }
         const newTaskList = [...state.items, newTask];
         state.items = newTaskList;  
+    },
+
+    clearAll: (state) => {
+        state.items = []
+    },
+
+    toggleDone: (state, action) => {
+        const foundItem = state.items.find((item) => item.id === action.payload)
+
+          //Toggle the value of complete, so it changes to true when you click the checkbox and false if you uncheck.
+            if (foundItem) {
+              foundItem.complete = ! foundItem.complete      
+    }
     }
 }
 })

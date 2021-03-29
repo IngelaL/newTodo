@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { tasks } from './reducer/tasks'
+import { tasks } from '../reducer/tasks'
 
 export const AddTask = () => {
     const dispatch = useDispatch()
@@ -25,7 +25,6 @@ export const AddTask = () => {
                 placeholder= 'What to do next?'
                 onChange={e => setInputValue(e.target.value)}
                 value={inputValue} required
-
             />
             <button>Add task</button>
         </form>
